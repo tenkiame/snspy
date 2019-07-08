@@ -1,0 +1,2 @@
+# snspy
+SNS in Django
