@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <table border="1">
+      <thead>
+        <tr>
+          <th>title</th>
+          <th>tag</th>
+          <th>created</th>
+          <th>updated</th>
+        </tr>
+      </thead>
+      {% for title in object_list %}
+      <tbody>
+        <tr>
+          <td>{{ title.title }}</td>
+          <td>{{ title.tag }}</td>
+          <td>{{ title.created_at }}</td>
+          <td>{{ title.updated_at }}</td>
+        </tr>
+      </tbody>
+      {% endfor %}
+    </table>
+  </body>
+</html>
