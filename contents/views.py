@@ -17,9 +17,3 @@ class BlogListView(ListView):
     model = Blogs
     exclude = ('text',)
     template_name = 'contents/bloglist.html'
-
-class BlogDetailView(DetailView):
-    model = Blogs
-    fields = ('title', 'text', 'tag', 'created_at', 'updated_at')
-    pk_url_kwarg = 'blog_pk'
-    template_name
