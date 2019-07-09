@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-# ここから
+
 from . import models
 from .models import Blogs
 from django.views.generic import CreateView, ListView, DetailView, UpdateView, DeleteView
