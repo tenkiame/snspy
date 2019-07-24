@@ -14,16 +14,17 @@
           <th>updated</th>
         </tr>
       </thead>
-      {% for title in object_list %}
+      {% for blog in object_list %}
       <tbody>
         <tr>
-          <td>{{ title.title }}</td>
-          <td>{{ title.tag }}</td>
-          <td>{{ title.created_at }}</td>
-          <td>{{ title.updated_at }}</td>
+          <td><a href="{% url 'detail' blog.pk %}">{{ blog.title }}</a></td>
+          <td>{{ blog.tag }}</td>
+          <td>{{ blog.created_at }}</td>
+          <td>{{ blog.updated_at }}</td>
         </tr>
       </tbody>
       {% endfor %}
     </table>
+    <a href="{% url 'create' %}">追加</a>
   </body>
 </html>
