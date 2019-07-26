@@ -5,9 +5,16 @@
     <title></title>
   </head>
   <body>
-    <form class="" action="" method="post">
-      {% csrf_token %}
+    <!-- ファイルをあつかうので、enctype="multipart/form-data" が必要 -->
+    <form class="" action="" method="post" enctype="multipart/form-data">
       {{ form.as_p }}
+      <br>
+      {{ formset.management_form }}
+      {% for file_form in formset %}
+        {{ file_form.as_p }}
+        <hr>
+      {% endfor %}
+      {% csrf_token %}
       <button type="submit" name="">Sign Up</button>
     </form>
   </body>

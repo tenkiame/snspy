@@ -1,16 +1,34 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .forms import UserCreationForm
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, ListView, DetailView, UpdateView, DeleteView
 from django.contrib.auth import get_user_model
 from . import models
 from .models import Profile
+from .forms import ProfileFormset
 
 
 class SignUpView(CreateView):
     form_class = UserCreationForm
     success_url = reverse_lazy('login')
     template_name = 'users/signup.html'
+
+    def get_context_data(self, **kwargs):
+        ctx = super(SignUpView, self).get_context_data(**kwargs)
+        ctx.update(dict(formset=ProfileFormset(self.request.POST or None, instance=self.object)))
+        return ctx
+
+    def form_valid(self, form):
+        ctx = self.get_context_data()
+        formset = ctx['formset']
+        if formset.is_valid():
+            self.object = form.save(commit=False)
+            self.object.save()
+            formset.save()
+            return redirect(self.success_url())
+        else:
+            ctx['form'] = form
+            return self.render_to_response(ctx)
 
 class AccountListView(ListView):
     model = Profile

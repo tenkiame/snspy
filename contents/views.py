@@ -7,24 +7,24 @@ from django.urls import reverse_lazy
 
 class BlogAddView(CreateView):
     model = Blogs
-    fields = ('title', 'text', 'tag')
+    fields = ('author', 'title', 'text', 'tag', 'created_at', 'updated_at', 'image', 'thumbnail')
     success_url = reverse_lazy('list')
     template_name = 'contents/blogedit.html'
 
 class BlogListView(ListView):
     model = Blogs
-    exclude = ('text',)
+    fields = ('author', 'title', 'tag', 'created_at', 'updated_at', 'thumbnail')
     template_name = 'contents/bloglist.html'
 
 class BlogDetailView(DetailView):
     model = Blogs
-    fields = ('title', 'text', 'tag', 'created_at', 'updated_at')
+    fields = ('author', 'title', 'text', 'tag', 'created_at', 'updated_at', 'image', 'thumbnail')
     pk_url_kwarg = 'blog_pk'
     template_name = 'contents/blogdetail.html'
 
 class BlogEditView(UpdateView):
     model = Blogs
-    fields = ('title', 'text', 'tag',)
+    fields = ('author', 'title', 'text', 'tag', 'created_at', 'updated_at', 'image', 'thumbnail')
     pk_url_kwarg = 'object_pk'
     success_url = reverse_lazy('list')
     template_name = 'contents/blogedit.html'
