@@ -12,6 +12,12 @@ class SignUpView(CreateView):
     success_url = reverse_lazy('login')
     template_name = 'users/signup.html'
 
+class UserDeleteView(DeleteView):
+    model = get_user_model()
+    pk_url_kwarg = 'profile_pk'
+    success_url = reverse_lazy('contents:list')
+    template_name = 'users/userdelete.html'
+
 class AccountListView(ListView):
     model = Profile
     fields = ('username', 'image')

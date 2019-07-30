@@ -1,25 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}
+bloglist
+{% endblock %}
+
+{% block content %}
+
 <table border="1">
   <thead>
     <tr>
+      <th>author</th>
       <th>title</th>
-      <th>text</th>
       <th>tag</th>
+      <th>text</th>
       <th>created</th>
       <th>updated</th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
   <tbody>
     <tr>
+      <th>{{ object.author }}</th>
       <td>{{ object.title }}</td>
-      <td>{{ object.text }}</td>
       <td>{{ object.tag }}</td>
+      <td>{{ object.text }}</td>
       <td>{{ object.created_at }}</td>
       <td>{{ object.updated_at }}</td>
-      <td><a href="{% url 'edit' object.pk %}">編集</a></td>
-      <td><a href="{% url 'delete' object.pk %}">削除</a></td>
+      <td><a href="{% url 'contents:blogedit' object.pk %}">編集</a></td>
+      <td><a href="{% url 'contents:blogdelete' object.pk %}">削除</a></td>
     </tr>
   </tbody>
-  <a href="{% url 'list' %}">一覧</a>  
+  <a href="{% url 'contents:bloglist' %}">一覧</a>
 </table>
+
+{% endblock %}

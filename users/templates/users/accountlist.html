@@ -6,10 +6,10 @@
   </head>
   <body>
     <h4>ユーザーリスト</h4>
-    {% for profile in object_list %}
+    {% for username in object_list %}
     <ul>
-      <li>{{ profile.username }}</li>
-      <li>{{ profile.image }}</li>
+      <li>{{ username.username }}</li>
+      <li>{{ username.image }}</li>
       <a href="{% url 'profile' profile.pk %}">詳細</a>
     </ul>
     {% endfor %}

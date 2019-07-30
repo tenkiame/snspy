@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}
+taglist
+{% endblock %}
+
+{% block content %}
+
+  {% for tag in object_list %}
+    <a href="{% url 'contents:imageedit' tag.pk %}">{{ tag.title }}</a><a href="{% url 'contents:imagedelete' object.pk  %}">削除</a>
+  {% endfor %}
+
+{% endblock %}

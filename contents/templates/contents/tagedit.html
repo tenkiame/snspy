@@ -1,17 +1,15 @@
 {% extends "base.html" %}
 
 {% block title %}
-blogdelete
+tagedit
 {% endblock %}
 
 {% block content %}
 
-<div class="">
-{{ object.title }}を削除しますか？
-</div>
 <form class="" action="" method="post">
-{% csrf_token %}
-<button type="submit" name="">削除</button>
+  {% csrf_token %}
+  <p>{{ form.as_p }}</p>
+  <button type="submit" name="">確定</button>
 </form>
 
 {% endblock %}
