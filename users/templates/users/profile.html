@@ -17,7 +17,7 @@
 </ul>
 
 {% if request.user_id == object.author.id %}
-<a href="{% url 'user:delete' profile.pk %}"></a>
+<a href="{% url 'user:userdelete' profile.pk %}"></a>
 {% endif %}
 
 {% endblock %}
