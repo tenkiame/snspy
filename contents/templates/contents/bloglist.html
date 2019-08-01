@@ -15,6 +15,7 @@ bloglist
       <th>text</th>
       <th>created</th>
       <th>updated</th>
+      <th>thumbnail</th>
     </tr>
   </thead>
   {% for title in object_list %}
@@ -26,6 +27,7 @@ bloglist
       <td>{{ title.text }}</td>
       <td>{{ title.created_at }}</td>
       <td>{{ title.updated_at }}</td>
+      <td>{{ title.thumbnail }}</td>
     </tr>
   </tbody>
   {% endfor %}
