@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>{% block title %}{% endblock %}</title>
+    {% load static %}
+    <link rel = "stylesheet" href = "{% static "style.css" %}">
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="{% url 'login' %}">login</a></li>
+          <li><a href="{% url 'users:signup' %}">sign up</a></li>
+          <li><a href="{% url 'users:accountlist' %}">user</a></li>
+          <li><a href="{% url 'contents:bloglist' %}">ブログ</a></li>
+          <li><a href="{% url 'contents:taglist' %}">タグ</a></li>
+          <li><a href="{% url 'contents:imagelist' %}">写真</a></li>
+        </ul>
+      </nav>
+    </header>
+    <section>
+      {% block content %}
+      {% endblock %}
+    </section>
+    <footer>
+      &copy; 2019 snspy
+    </footer>
+  </body>
+</html>

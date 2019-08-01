@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}
+imagelist
+{% endblock %}
+
+{% block content %}
+
+  {% for image in object_list %}
+    <ul>
+      <li><a href="{% url 'contents:imageedit' image.pk %}">{{ image.title }}</a><a href="{% url 'contents:imagedelete' object.pk %}">削除</a></li>
+      <li>{{ image.image }}</li>
+      <li>{{ image.author }}</li>
+      <li>{{ image.text }}</li>
+    </ul>
+  {% endfor %}
+
+{% endblock %}
