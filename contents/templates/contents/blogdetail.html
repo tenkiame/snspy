@@ -15,6 +15,7 @@ bloglist
       <th>text</th>
       <th>created</th>
       <th>updated</th>
+      <th>photo</th>
     </tr>
   </thead>
   <tbody>
@@ -25,6 +26,7 @@ bloglist
       <td>{{ object.text }}</td>
       <td>{{ object.created_at }}</td>
       <td>{{ object.updated_at }}</td>
+      <td>{{ object.photo }}</td>
       <td><a href="{% url 'contents:blogedit' object.pk %}">編集</a></td>
       <td><a href="{% url 'contents:blogdelete' object.pk %}">削除</a></td>
     </tr>
